@@ -23,14 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = Array.from(dotsContainer.children);
     
     // 2. Función principal para mover el carrusel y actualizar puntos
-    function updateCarousel() {
-        // Mueve la pista
-        track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-        
-        // Actualiza el punto activo
-        dots.forEach(dot => dot.classList.add('active'));
-        dots[currentSlideIndex].classList.add('active');
-    }
+function updateCarousel() {
+    // Calculamos el desplazamiento dejando un margen para ver las fotos laterales
+    const offset = currentSlideIndex * 72; // 70% de ancho + gap
+    track.style.transform = `translateX(-${offset}%)`;
+    
+    // Quitamos y ponemos la clase active para el efecto de escala
+    slides.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentSlideIndex) {
+            slide.classList.add('active');
+        }
+    });
+
+    // Actualizamos los dots
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentSlideIndex].classList.add('active');
+}
     
     // 3. Función para pasar a la siguiente diapositiva automáticamente
     function moveToNextSlide() {
