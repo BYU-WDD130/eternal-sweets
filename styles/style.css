@@ -1,0 +1,47 @@
+body{
+font-family: Arial, sans-serif;
+margin:0;
+text-align:center;
+}
+
+header{
+background:#f0b8b8;
+color:rgb(90, 165, 152);
+padding:80px 20px;
+}
+.btn{
+background:#ff6600;
+color:white;
+padding:12px 25px;
+text-decoration:none;
+border-radius:5px;
+}
+.btn:hover{
+    background:#e65c00;
+}
+.services{
+display:flex;
+justify-content:center;
+gap:30px;
+padding:50px 20px;
+}
+.service-card{
+background:#f9f9f9;
+padding:20px;
+border-radius:8px;
+width:250px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+transition:.3s;
+}
+
+.banner-container {
+ width: 100%;
+ overflow: hidden;
+}
+
+.main-banner {
+ width: 100%;
+ height: auto;
+ display: block;
+object-fit: cover;
+}
