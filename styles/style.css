@@ -152,6 +152,7 @@ header h1 {
 }
 
 .client-gallery {
+    position: relative;
     padding: 60px 0; /* Espaciado superior/inferior, 0 a los lados */
     background-color: #ffffff;
     text-align: center;
@@ -371,6 +372,27 @@ header h1 {
     .contacto-form-wrapper {
         padding: 25px;
     }
+}
+
+.custom-shape-divider-bottom-1779844310 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1779844310 svg {
+    position: relative;
+    display: block;
+    width: calc(127% + 1.3px);
+    height: 84px;
+}
+
+.custom-shape-divider-bottom-1779844310 .shape-fill {
+    fill: #FFFFFF;
 }
 
 
