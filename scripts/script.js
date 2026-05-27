@@ -94,3 +94,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const navMobile = document.getElementById("nav-mobile");
+    const menuOverlay = document.getElementById("menu-overlay");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    // Función para abrir/cerrar el menú lateral
+    const toggleMenu = () => {
+        hamburgerBtn.classList.toggle("active");
+        navMobile.classList.toggle("active");
+        menuOverlay.classList.toggle("active");
+        
+        // Evita el scroll molesto en el fondo de la página mientras está abierto
+        document.body.style.overflow = navMobile.classList.contains("active") ? "hidden" : "";
+    };
+
+    // Escuchadores de eventos
+    hamburgerBtn.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", toggleMenu);
+
+    // Cierra el menú al presionar cualquier enlace de navegación móvil
+    mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (navMobile.classList.contains("active")) {
+                toggleMenu();
+            }
+        });
+    });
+});

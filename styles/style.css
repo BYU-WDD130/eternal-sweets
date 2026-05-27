@@ -405,6 +405,133 @@ footer {
     margin-top: 40px;
 }
 
+.hamburger {
+    display: none; /* Oculto en computadoras */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px;
+    z-index: 1100;
+    position: absolute;
+    left: 20px; /* Lo posiciona a la izquierda del logo en celulares */
+}
+
+.hamburger .bar {
+    width: 26px;
+    height: 3px;
+    background-color: #1a2a3a; /* Ajusta al color oscuro de tu marca */
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile {
+    display: none; /* Oculto en computadoras */
+}
+
+/* ==========================================================================
+   MEDIA QUERY: ADAPTACIÓN PARA MÓVILES (MENOS DE 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* 1. Ocultamos los menús de escritorio */
+    .nav-left, .nav-right {
+        display: none !important;
+    }
+
+    /* 2. Forzamos al header a ser relativo para posicionar la hamburguesa */
+    .main-header {
+        position: fixed; /* O absolute, según uses en tu proyecto */
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Mantiene tu logo centrado perfectamente */
+        align-items: center;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    /* 3. Mostramos la hamburguesa */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Animación de Hamburguesa a "X" */
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* 4. Estilos del Panel Móvil que sale de Izquierda a Derecha */
+    .nav-mobile {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%; /* Totalmente oculto a la izquierda */
+        width: 280px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1050;
+        transition: left 0.4s ease; /* Desplazamiento suave */
+        padding: 90px 30px 30px 30px;
+        box-sizing: border-box;
+    }
+
+    /* Clase activa que inyectará JavaScript para mostrarlo */
+    .nav-mobile.active {
+        left: 0; /* Entra por completo a la pantalla */
+    }
+
+    .nav-mobile ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 25px;
+    }
+
+    .mobile-link {
+        text-decoration: none;
+        color: #444;
+        font-size: 1.2rem;
+        font-weight: 500;
+        display: block;
+        transition: color 0.3s ease;
+    }
+
+    .mobile-link:hover {
+        color: #e07a5f;
+    }
+
+    /* Capa oscura exterior */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1040;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+    }
+
+    .menu-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
 
 @media (max-width: 768px) {
     .carousel-slide {
