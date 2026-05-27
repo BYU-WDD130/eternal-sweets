@@ -241,6 +241,139 @@ header h1 {
     transform: scale(1.3);
 }
 
+/* ==========================================================================
+   SECCIÓN CONTACTO Y HORARIOS (PUNTO 5)
+   ========================================================================== */
+.contacto-section {
+    padding: 60px 20px;
+    background-color: #fffafb; /* Un tono crema/rosa sumamente sutil */
+    font-family: inherit;
+}
+
+.contacto-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Columna de Información */
+.contacto-info h2 {
+    font-size: 2.5rem;
+    color: #1a2a3a; /* Ajusta al tono oscuro de tus títulos */
+    margin-bottom: 5px;
+}
+
+.contacto-info .subtitle {
+    font-style: italic;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.info-block {
+    margin-bottom: 25px;
+}
+
+.info-block h3 {
+    font-size: 1.2rem;
+    color: #1a2a3a;
+    margin-bottom: 8px;
+}
+
+.info-block p {
+    color: #555;
+    line-height: 1.6;
+    margin: 4px 0;
+}
+
+.phone-number {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e07a5f; /* Color de énfasis/antojo */
+}
+
+/* Columna del Formulario */
+.contacto-form-wrapper {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+}
+
+.contacto-form-wrapper h3 {
+    margin-bottom: 20px;
+    color: #1a2a3a;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ffb7c5; /* Color rosa suave enfocado */
+}
+
+/* Botón de Acción Principal (CTA) */
+.btn-enviar {
+    width: 100%;
+    background-color: #1a2a3a; /* Cambia por tu color de botón actual si prefieres */
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #2c3e50;
+    transform: translateY(-2px);
+}
+
+/* Adaptabilidad para Celulares (Responsive) */
+@media (max-width: 768px) {
+    .contacto-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    
+    .contacto-form-wrapper {
+        padding: 25px;
+    }
+}
+
+
 /* Pie de página */
 footer {
     background: #333;

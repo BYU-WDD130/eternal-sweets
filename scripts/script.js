@@ -62,3 +62,35 @@ function updateCarousel() {
     track.addEventListener('mouseenter', () => clearInterval(slideInterval));
     track.addEventListener('mouseleave', () => resetInterval());
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("form-pedidos");
+
+    if (form) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault(); // Evita que la página se recargue
+
+            // Captura los datos del formulario
+            const nombre = document.getElementById("nombre").value;
+            const postre = document.getElementById("postre").value;
+            const mensaje = document.getElementById("mensaje").value;
+
+            // Reemplaza con tu número real de WhatsApp (código de país + número sin espacios)
+            // Ejemplo: 5215555555555 para México o 1XXXXXXXXXX para USA
+            const telefonoWhatsApp = "5555555555"; 
+
+            // Formatea el mensaje estético para WhatsApp
+            const textoMensaje = `¡Hola *Eternal Sweets*! 🍰%0A` +
+                                 `Me gustaría realizar una cotización:%0A%0A` +
+                                 `👤 *Nombre:* ${encodeURIComponent(nombre)}%0A` +
+                                 `🎂 *Producto:* ${encodeURIComponent(postre)}%0A` +
+                                 `💬 *Detalles:* ${encodeURIComponent(mensaje)}`;
+
+            // Crea el enlace de la API de WhatsApp
+            const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefonoWhatsApp}&text=${textoMensaje}`;
+
+            // Abre WhatsApp en una pestaña nueva
+            window.open(urlWhatsApp, "_blank");
+        });
+    }
+});
