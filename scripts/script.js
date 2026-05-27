@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Reemplaza con tu número real de WhatsApp (código de país + número sin espacios)
             // Ejemplo: 5215555555555 para México o 1XXXXXXXXXX para USA
-            const telefonoWhatsApp = "5555555555"; 
+            const telefonoWhatsApp = "+1(201) 889-8079"; 
 
             // Formatea el mensaje estético para WhatsApp
             const textoMensaje = `¡Hola *Eternal Sweets*! 🍰%0A` +
