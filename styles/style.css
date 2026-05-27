@@ -1,13 +1,20 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* ==========================================================================
+   1. ESTILOS BASE (ESCRITORIO / GENERAL)
+   ========================================================================== */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #fdf5f7; /* Rosa muy pálido */
 }
 
-/* Encabezado */
+/* Encabezado tradicional */
 header {
     background-color: #f2aebc; /* Rosa de tu logo */
     color: white;
@@ -65,21 +72,42 @@ header h1 {
 .center-logo {
     height: 120px; /* Tamaño del logo */
     width: auto;
-
 }
 
+/* Elementos del menú hamburguesa ocultos en escritorio */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px;
+    z-index: 1100;
+}
 
-/* Sección Hero (Imagen principal) */
+.hamburger .bar {
+    width: 26px;
+    height: 3px;
+    background-color: #1a2a3a;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-mobile {
+    display: none;
+}
+
+/* Sección Hero */
 .hero {
-    background-color: #1a2a3a; /* Azul oscuro como el de tu logo */
+    background-color: #1a2a3a;
     color: white;
     padding: 60px 20px;
     text-align: center;
-    border-bottom: 5px solid #d4af37; /* Detalle dorado */
+    border-bottom: 5px solid #d4af37;
 }
 
 .hero-section {
-    /* Aquí pones la ruta de tu imagen hero */
     background-image: url('images/cake2.jpeg'); 
     background-size: cover;
     background-position: center;
@@ -90,7 +118,7 @@ header h1 {
 }
 
 .hero-overlay {
-    background: rgba(27, 48, 71, 0.85); /* Azul oscuro semitransparente */
+    background: rgba(27, 48, 71, 0.85);
     padding: 50px 80px;
     text-align: center;
     color: white;
@@ -98,7 +126,7 @@ header h1 {
 }
 
 .hero-overlay h1 {
-    font-family: 'Merriweather', serif; /* Fuente elegante */
+    font-family: 'Merriweather', serif;
     font-size: 4rem;
     margin-bottom: 10px;
     color: white;
@@ -136,11 +164,11 @@ header h1 {
 }
 
 .product-img {
-    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
-    height: 200px; /* Definimos una altura fija para que todas se vean iguales */
-    object-fit: cover; /* Ajusta la imagen sin recortarla mal */
-    border-radius: 10px; /* Bordes redondeados para la foto */
-    margin-bottom: 15px; /* Espacio con el título */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 /* Sección Sobre Nosotros */
@@ -151,12 +179,13 @@ header h1 {
     margin: 0 auto;
 }
 
+/* Carrusel / Galería */
 .client-gallery {
     position: relative;
-    padding: 60px 0; /* Espaciado superior/inferior, 0 a los lados */
+    padding: 60px 0;
     background-color: #ffffff;
     text-align: center;
-    overflow: hidden; /* Oculta lo que sale del carrusel */
+    overflow: hidden;
 }
 
 .gallery-header h2 {
@@ -185,48 +214,45 @@ header h1 {
 
 .carousel-track {
     display: flex;
-    transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1); /* Transición más fluida */
-    gap: 10px; /* Espacio entre las fotos */
+    transition: transform 0.8s cubic-bezier(0.45, 0, 0.55, 1);
+    gap: 10px;
 }
 
-/* Cada Diapositiva */
 .carousel-slide {
-    min-width: 80%; /* IMPORTANTE: Al ser menor al 100%, permite ver las de al lado */
+    min-width: 60%; /* Vista óptima en pantallas grandes */
     height: 450px; 
     position: relative;
-    border-radius: 30px; /* Bordes muy redondeados como pediste */
+    border-radius: 30px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    transform: scale(0.95); /* Las fotos de los lados se ven un poco más pequeñas */
+    transform: scale(0.95);
     transition: transform 0.5s ease;
+    margin: 0 15px;
 }
 
-/* Foto que está en el centro */
 .carousel-slide.active {
-    transform: scale(1); /* La foto central resalta más */
+    transform: scale(1);
 }
 
 .carousel-slide img {
-     width: 100%; 
+    width: 100%; 
     height: 100%;
     object-fit: cover;
     object-position: center;
 }
 
-/* Etiqueta de Usuario (Azul Oscuro con bordes redondeados) */
 .photo-caption {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background: #1B3047; /* El azul marino de tu marca */
+    background: #1B3047;
     color: white;
     padding: 12px 25px;
-    border-radius: 15px 0 15px 0; /* Bordes asimétricos elegantes */
+    border-radius: 15px 0 15px 0;
     font-size: 0.9rem;
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Puntos de Navegación (Dots) */
 .carousel-dots button {
     width: 12px;
     height: 12px;
@@ -238,16 +264,14 @@ header h1 {
 }
 
 .carousel-dots button.active {
-    background-color: #D4AF37; /* Dorado para el punto activo */
+    background-color: #D4AF37;
     transform: scale(1.3);
 }
 
-/* ==========================================================================
-   SECCIÓN CONTACTO Y HORARIOS (PUNTO 5)
-   ========================================================================== */
+/* Sección Contacto */
 .contacto-section {
     padding: 60px 20px;
-    background-color: #fffafb; /* Un tono crema/rosa sumamente sutil */
+    background-color: #fffafb;
     font-family: inherit;
 }
 
@@ -260,10 +284,9 @@ header h1 {
     align-items: start;
 }
 
-/* Columna de Información */
 .contacto-info h2 {
     font-size: 2.5rem;
-    color: #1a2a3a; /* Ajusta al tono oscuro de tus títulos */
+    color: #1a2a3a;
     margin-bottom: 5px;
 }
 
@@ -292,10 +315,9 @@ header h1 {
 .phone-number {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #e07a5f; /* Color de énfasis/antojo */
+    color: #e07a5f;
 }
 
-/* Columna del Formulario */
 .contacto-form-wrapper {
     background: #ffffff;
     padding: 40px;
@@ -340,13 +362,12 @@ header h1 {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ffb7c5; /* Color rosa suave enfocado */
+    border-color: #ffb7c5;
 }
 
-/* Botón de Acción Principal (CTA) */
 .btn-enviar {
     width: 100%;
-    background-color: #1a2a3a; /* Cambia por tu color de botón actual si prefieres */
+    background-color: #1a2a3a;
     color: #ffffff;
     border: none;
     padding: 14px;
@@ -362,18 +383,7 @@ header h1 {
     transform: translateY(-2px);
 }
 
-/* Adaptabilidad para Celulares (Responsive) */
-@media (max-width: 768px) {
-    .contacto-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-    
-    .contacto-form-wrapper {
-        padding: 25px;
-    }
-}
-
+/* Divisores estéticos y Footer */
 .custom-shape-divider-bottom-1779844310 {
     position: relative;
     bottom: 0;
@@ -395,8 +405,6 @@ header h1 {
     fill: #FFFFFF;
 }
 
-
-/* Pie de página */
 footer {
     background: #333;
     color: white;
@@ -405,60 +413,69 @@ footer {
     margin-top: 40px;
 }
 
-.hamburger {
-    display: none; /* Oculto en computadoras */
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 6px;
-    padding: 5px;
-    z-index: 1100;
-    position: absolute;
-    left: 20px; /* Lo posiciona a la izquierda del logo en celulares */
-}
-
-.hamburger .bar {
-    width: 26px;
-    height: 3px;
-    background-color: #1a2a3a; /* Ajusta al color oscuro de tu marca */
-    border-radius: 2px;
-    transition: all 0.3s ease;
-}
-
-.nav-mobile {
-    display: none; /* Oculto en computadoras */
-}
 
 /* ==========================================================================
-   MEDIA QUERY: ADAPTACIÓN PARA MÓVILES (MENOS DE 768px)
+   2. MEDIA QUERY: TABLETS (769px a 1023px)
    ========================================================================== */
-@media (max-width: 768px) {
-    /* 1. Ocultamos los menús de escritorio */
-    .nav-left, .nav-right {
-        display: none !important;
+@media (max-width: 1023px) {
+    .main-header {
+        padding: 20px 40px;
     }
 
-    /* 2. Forzamos al header a ser relativo para posicionar la hamburguesa */
+    .nav-left, .nav-right {
+        gap: 20px;
+    }
+
+    .carousel-slide {
+        min-width: 75%; 
+        margin: 0 10px;
+    }
+
+    .contacto-container {
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 3rem;
+    }
+}
+
+
+/* ==========================================================================
+   3. MEDIA QUERY: MÓVILES (Menos de 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- HEADER & MENÚ HAMBURGUESA --- */
+    .nav-left, .nav-right {
+        display: none !important; /* Esconde menús de escritorio */
+    }
+
     .main-header {
-        position: fixed; /* O absolute, según uses en tu proyecto */
+        position: fixed; /* Barra fija arriba */
         top: 0;
         left: 0;
         width: 100%;
         display: flex;
-        justify-content: center; /* Mantiene tu logo centrado perfectamente */
+        justify-content: center; /* Centra el logo */
         align-items: center;
         padding: 10px 20px;
         box-sizing: border-box;
         z-index: 1000;
+        height: 90px;
     }
 
-    /* 3. Mostramos la hamburguesa */
+    .center-logo {
+        height: 70px; /* Reducimos el logo en celular */
+    }
+
     .hamburger {
         display: flex;
+        position: absolute;
+        left: 20px;
     }
 
-    /* Animación de Hamburguesa a "X" */
+    /* Transformación de Hamburguesa a "X" */
     .hamburger.active .bar:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
     }
@@ -469,25 +486,24 @@ footer {
         transform: translateY(-9px) rotate(-45deg);
     }
 
-    /* 4. Estilos del Panel Móvil que sale de Izquierda a Derecha */
+    /* Menú Desplegable Lateral */
     .nav-mobile {
         display: block;
         position: fixed;
         top: 0;
-        left: -100%; /* Totalmente oculto a la izquierda */
+        left: -100%;
         width: 280px;
         height: 100vh;
         background-color: #ffffff;
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
         z-index: 1050;
-        transition: left 0.4s ease; /* Desplazamiento suave */
+        transition: left 0.4s ease;
         padding: 90px 30px 30px 30px;
         box-sizing: border-box;
     }
 
-    /* Clase activa que inyectará JavaScript para mostrarlo */
     .nav-mobile.active {
-        left: 0; /* Entra por completo a la pantalla */
+        left: 0;
     }
 
     .nav-mobile ul {
@@ -501,7 +517,7 @@ footer {
 
     .mobile-link {
         text-decoration: none;
-        color: #444;
+        color: #1B3047;
         font-size: 1.2rem;
         font-weight: 500;
         display: block;
@@ -509,10 +525,9 @@ footer {
     }
 
     .mobile-link:hover {
-        color: #e07a5f;
+        color: #F2AEBC;
     }
 
-    /* Capa oscura exterior */
     .menu-overlay {
         position: fixed;
         top: 0;
@@ -530,17 +545,62 @@ footer {
         opacity: 1;
         pointer-events: auto;
     }
-}
 
+    /* Compensar altura del header fijo para que no tape el Hero */
+    body {
+        padding-top: 90px;
+    }
 
-@media (max-width: 768px) {
+    /* --- HERO MÓVIL --- */
+    .hero-overlay {
+        padding: 30px 20px;
+    }
+
+    .hero-overlay h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-overlay p {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    /* --- CARRUSEL MÓVIL --- */
     .carousel-slide {
-        min-width: 85%; /* En móvil ocupan más ancho */
-        height: 300px;  /* Pero mucha menos altura */
+        min-width: 90%; /* Ocupa casi todo el ancho disponible */
+        height: 320px;  /* Altura adaptada a celular */
+        margin: 0 5px;
+        border-radius: 20px;
+        transform: scale(0.98);
+    }
+    
+    .carousel-slide.active {
+        transform: scale(1);
     }
     
     .photo-caption {
         padding: 8px 15px;
         font-size: 0.75rem;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    /* --- CONTACTO MÓVIL --- */
+    .contacto-container {
+        grid-template-columns: 1fr; /* Una sola columna vertical */
+        gap: 35px;
+        padding: 0 15px;
+    }
+    
+    .contacto-info {
+        text-align: center;
+    }
+    
+    .contacto-info h2 {
+        font-size: 2rem;
+    }
+    
+    .contacto-form-wrapper {
+        padding: 25px;
     }
 }
